@@ -2,7 +2,7 @@
 
 ## Repository Summary
 
-Python implementation of non-homologous stellar collapse simulation, based on IDL implementation by S. Cranmer.\
+Python implementation of non-homologous stellar collapse simulation, based on IDL implementation by S. Cranmer.
 
 
 ## Installation
@@ -15,10 +15,10 @@ The model can be run using the following syntax:\
 
 The arguments are:\
 `--epsilon`: (float) .\
-`--outdir`: (string) .\
+`--outdir`: (string) .
 
 ## Examples
-To produce the plots in the `example_plots` directory, see below.\
+To produce the plots in the `example_plots` directory, see below.
 
 $\epsilon = 0:$
 `python non_homologous.py --epsilon 0.0 --outdir ./example_plots`
