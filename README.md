@@ -18,14 +18,14 @@ The arguments are:\
 `--outdir`: (string) .
 
 ## Examples
-To produce the plots in the `example_plots` directory, see below.
+To produce the plots in the `plots` directory, see below.
 
 $\epsilon = 0:$
-`python non_homologous.py --epsilon 0.0 --outdir ./example_plots`
+`python non_homologous.py --epsilon 0.0 --outdir ./plots`
 
 $\epsilon = 0.1:$
-`python non_homologous.py --epsilon 0.1 --outdir ./example_plots`
+`python non_homologous.py --epsilon 0.1 --outdir ./plots`
 
 $\epsilon = 0.9:$
-`python non_homologous.py --epsilon 0.9 --outdir ./example_plots`
+`python non_homologous.py --epsilon 0.9 --outdir ./plots`
 
