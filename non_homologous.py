@@ -91,7 +91,7 @@ tnorm = t/tDmax
 rnorm = r/bigR0
 
 # compute slices of constant time (new grid in t-prime)
-# and examine structure & interior density of concentric shells
+# and numerically differentiate
 nslice = 100
 tslice = np.linspace(0,0.95*tDmin,nslice)
 rslice = np.zeros([nslice,nr0])
@@ -110,7 +110,7 @@ fs2 = 16
 plt.figure(figsize = [30,13], dpi = 200)
 plt.subplot(221)
 for i in range(nr0):
-    if (i%100 == 0) | (i == 799): # so that we don't have so many
+    if (i%100 == 0) | (i == 799): # for clarity in plotting
         l1, = plt.plot(tnorm[i,:], rnorm[i,:], label = 'r0='+str(round((r0[i]/xRsun),3))+'R0') # r/R0 vs time/t_max 
         color = l1.get_color()
         plt.plot(tslice/tDmax, rslice[:,i]/bigR0, '.', color = color)
@@ -120,14 +120,14 @@ plt.ylabel(r'r/R$_0$', fontsize = fs2)
 plt.legend(fontsize = fs1)
 plt.subplot(223)
 for i in range(nr0):
-    if (i%100 == 0) | (i== 799): # so that we don't have so many
+    if (i%100 == 0) | (i== 799): # for clarity in plotting
         plt.plot(tnorm[i,:], r[i,:]/r0[i], label = 'r0='+str(round((r0[i]/xRsun),3))+'R0')
 plt.xlabel(r't/t$_{max}$', fontsize = fs2)
 plt.ylabel(r'r/r$_0$', fontsize = fs2)
 plt.legend(fontsize = fs1)
 plt.subplot(222)
 for j in range(nslice):
-    if (j%15 == 0) | (j== nslice - 1): # so that we don't have so many
+    if (j%15 == 0) | (j== nslice - 1): # for clarity in plotting
         xpoly = rslice[j,:]/rslice[j,nr0-1] # rslice over final r0 rslice (divide just for normalizing)
         ypoly = rho[j,:]/rho[j,nr0-1] # rslice over final r0 rslice (divide just for normalizing)
         idxs = xpoly >= 0.05
@@ -154,4 +154,3 @@ if not os.path.exists(outdir):
     
 outfile = 'non_homologous_plots_eps=' + str(epsilon) + '.png'
 plt.savefig(outdir + '/' + outfile)
-
